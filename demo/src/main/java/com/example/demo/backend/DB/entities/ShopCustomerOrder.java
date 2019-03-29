@@ -1,4 +1,4 @@
-package com.example.demo.backend.entities;
+package com.example.demo.backend.DB.entities;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,8 +16,8 @@ public class ShopCustomerOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Date date;
-    private int cost;
+    private String date;
+    private double cost;
 
     @ManyToOne
     @JoinColumn
@@ -27,7 +27,7 @@ public class ShopCustomerOrder {
     @OneToMany(mappedBy = "shopCustomerOrder", cascade = CascadeType.ALL)
     private Set<ShopCustomerOrderGood> shopCustomerOrderGoods;
 
-    public ShopCustomerOrder(Date date, int cost, ShopCustomerOrderGood... shopCustomerOrderGoods) {
+    public ShopCustomerOrder(String date, double cost, ShopCustomerOrderGood... shopCustomerOrderGoods) {
         this.date = date;
         this.cost = cost;
         this.shopCustomerOrderGoods = Stream.of(shopCustomerOrderGoods).collect(Collectors.toSet());

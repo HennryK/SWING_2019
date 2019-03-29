@@ -1,4 +1,4 @@
-package com.example.demo.backend.entities;
+package com.example.demo.backend.DB.entities;
 
 
 import lombok.Data;
@@ -29,4 +29,28 @@ public class ShopCustomer {
     }
 
     public ShopCustomer() { }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<ShopCustomerOrder> getShopCustomerOrders() {
+        return shopCustomerOrders;
+    }
+
+    public void setShopCustomerOrders(Set<ShopCustomerOrder> shopCustomerOrders) {
+        this.shopCustomerOrders = shopCustomerOrders;
+    }
 }

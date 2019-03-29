@@ -1,4 +1,4 @@
-package com.example.demo.backend.entities;
+package com.example.demo.backend.DB.entities;
 
 import lombok.Data;
 
@@ -22,8 +22,7 @@ public class ShopCustomerOrderGood {
         this.quantity = quantity;
     }
 
-    public ShopCustomerOrderGood() {
-    }
+    public ShopCustomerOrderGood() { }
 
     public void setShopCustomerOrder(ShopCustomerOrder shopCustomerOrder) {
         this.shopCustomerOrder = shopCustomerOrder;

@@ -1,4 +1,4 @@
-package com.example.demo.backend.entities;
+package com.example.demo.backend.DB.entities;
 
 import lombok.Data;
 
@@ -15,12 +15,36 @@ public class ShopProduct {
     private int id;
 
     private String name;
-    private String cost;
+    private int cost;
 
-    public ShopProduct(String name, String cost) {
+    public ShopProduct(String name, int cost) {
         this.name = name;
         this.cost = cost;
     }
 
     public ShopProduct() { }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
 }
