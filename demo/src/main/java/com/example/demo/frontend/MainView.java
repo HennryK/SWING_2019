@@ -92,9 +92,16 @@ public class MainView extends VerticalLayout {
         tmp = 0;
     }
 
-    private void listOfCustomer() {
-        //TODO Výpis již registrovaných uživatelů
+    private void listOfProducts() {
+        productGrid.setItems(productRepository.findAll());
 
+        productGrid.addColumn(ShopProduct::getName).setHeader("Název zboží");
+        productGrid.addColumn(ShopProduct::getCost).setHeader("Cena zboží");
+
+        productGrid.setSelectionMode(Grid.SelectionMode.MULTI);
+        productGrid.asMultiSelect().addSelectionListener(event -> {
+            event.getValue();
+        });
     }
 
 
@@ -113,6 +120,12 @@ public class MainView extends VerticalLayout {
 
 
 
+
+
+    private void listOfCustomer() {
+        //TODO Výpis již registrovaných uživatelů
+
+    }
 
     private void confirmOrder() {
         double costTmp = 0;
@@ -141,15 +154,5 @@ public class MainView extends VerticalLayout {
 
     }
 
-    private void listOfProducts() {
-        productGrid.setItems(productRepository.findAll());
 
-        productGrid.addColumn(ShopProduct::getName).setHeader("Název zboží");
-        productGrid.addColumn(ShopProduct::getCost).setHeader("Cena zboží");
-
-        productGrid.setSelectionMode(Grid.SelectionMode.MULTI);
-        productGrid.asMultiSelect().addSelectionListener(event -> {
-            event.getValue();
-        });
-    }
 }
